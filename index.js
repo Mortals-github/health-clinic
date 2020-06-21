@@ -1,12 +1,24 @@
-const express = require('express');
-const path = require('path');
+import React from 'react';
+import ReactDOM from 'react-dom';
+// import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import configureStore from './configure-store.js';
+import Home from './components/home';
+// import Login from './components/login';
 
-const PORT = 9012;
+// const store = configureStore();
+ReactDOM.render(
 
-const app = express();
-
-app.use(express.static(path.join(__dirname, '../../public')));
-
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+  // <Provider store={store}>
+  <BrowserRouter>
+    <div className='app'>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        {/* <Route exact path='/login' component={Login} /> */}
+        {/* <Route path='/' component={PageNotFound} /> */}
+      </Switch>
+    </div>
+  </BrowserRouter>
+  // </Provider>,
+  ,document.getElementById('root')
+);
